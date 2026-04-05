@@ -1,0 +1,10 @@
+Device Name,Model,Interface,IP Address,Subnet Mask,CIDR,Default Gateway,VLAN,Purpose,Notes,Status
+Core-SW-01,Catalyst 3560X,Vlan10 (SVI),10.10.10.1,255.255.255.0,/24,—,10,MGMT VLAN default gateway,Acts as L3 gateway for all devices on VLAN 10. All switch/router management traffic routes through here.,Pending Config
+Core-SW-01,Catalyst 3560X,Vlan20 (SVI),10.10.20.1,255.255.255.0,/24,—,20,DATA VLAN default gateway,Acts as L3 gateway for all end-user host traffic on VLAN 20.,Pending Config
+Core-SW-01,Catalyst 3560X,Vlan30 (SVI),10.10.30.1,255.255.255.0,/24,—,30,VOICE VLAN default gateway,Reserved for future VoIP device integration. Gateway pre-assigned for planning purposes.,Pending Config
+Core-SW-01,Catalyst 3560X,Vlan40 (SVI),10.10.40.1,255.255.255.0,/24,—,40,MONITOR VLAN default gateway,Carries SNMP polling and syslog traffic between monitoring host and network devices.,Pending Config
+Core-SW-01,Catalyst 3560X,GigabitEthernet0/1 (Routed),10.10.99.2,255.255.255.252,/30,10.10.99.1,N/A,Uplink to Edge Router,Point-to-point routed link toward Edge-RTR-01. /30 used to conserve addresses on a transit link — only 2 usable host IPs needed.,Pending Config
+Access-SW-01,Catalyst 2960X,Vlan10 (SVI),10.10.10.2,255.255.255.0,/24,10.10.10.1,10,Device management interface,L2 switch — this SVI is the only IP on the device. Used exclusively for SSH management access and SNMP polling.,Pending Config
+Edge-RTR-01,Cisco ISR 1921,GigabitEthernet0/0,10.10.99.1,255.255.255.252,/30,—,N/A,Lab-facing interface,Point-to-point link to Core-SW-01 Gi0/1. This is the lab network entry point.,Pending — Hardware Not Yet Acquired
+Edge-RTR-01,Cisco ISR 1921,GigabitEthernet0/1,192.168.1.x,255.255.255.0,/24,192.168.1.1,N/A,WAN / Home network-facing interface,Connects to home ISP gateway. Exact IP assigned via DHCP or set statically once hardware is on hand. Update x when confirmed.,Pending — Hardware Not Yet Acquired
+MGMT-HOST-01,HP EliteDesk 800,eth0,10.10.10.10,255.255.255.0,/24,10.10.10.1,10,Primary management host interface,Hosts monitoring stack (Grafana/Zabbix) and Python automation scripts. Sits on MGMT VLAN for direct device access via SSH and SNMP.,Pending Config
