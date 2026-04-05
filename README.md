@@ -83,7 +83,7 @@ MORE SOON
 │
 ├── /addressing
 │   ├── ip-addressing-scheme.csv         # Full IP table — device, interface, IP, VLAN
-│   └── vlan-register.csv               # VLAN register — ID, name, purpose, ports
+│   └── vlan-registry-scheme.csv         # VLAN register — ID, name, purpose, ports
 │
 ├── /configs
 │   ├── 3560X-core-config.txt           # Core switch running configuration
